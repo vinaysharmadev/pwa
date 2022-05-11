@@ -22,14 +22,11 @@ public class MessageController {
     @Autowired private SimpMessagingTemplate messagingTemplate;
     @Autowired private ChatMessageService chatMessageService;
     @Autowired private ChatRoomService chatRoomService;
-    @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
-    public Greeting greeting(MessageSegment message) throws Exception {
-        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getMessage()) + "!");
-    }
 
     @MessageMapping("/sendMessage")
     public void processMessage(@Payload CustomMessage chatMessage) {
+        System.out.println("Process message");
+
         messagingTemplate.convertAndSendToUser(
                 String.valueOf(chatMessage.getReceiverId()),"/queue/messages",
                 chatMessage);
