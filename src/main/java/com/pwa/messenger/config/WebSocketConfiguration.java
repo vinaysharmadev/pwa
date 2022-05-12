@@ -31,7 +31,7 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
         System.out.println("Registry entry");
         registry
                 .addEndpoint("/messenger-connect")
-                .setAllowedOrigins("*")
+                .setAllowedOrigins("https://app2.pw")
                 .withSockJS();
     }
 
