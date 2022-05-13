@@ -9,10 +9,11 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-
+@CrossOrigin("https://app2.pw/")
 public class MessengerApplication {
 
 	public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class MessengerApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedMethods("*").allowedOriginPatterns("https://*.domain.com");
+				registry.addMapping("https://app2.pw/").allowedMethods("*");
 			}
 		};
 	}
