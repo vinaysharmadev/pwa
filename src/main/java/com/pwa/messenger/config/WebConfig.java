@@ -13,11 +13,11 @@ public class WebConfig extends WebMvcAutoConfiguration implements WebMvcConfigur
     @Override
     public void addCorsMappings(CorsRegistry registry) {
 
-        registry.addMapping("/**")
+        registry.addMapping("https://app2.pw/")
                 .allowedOrigins(CorsConfiguration.ALL)
                 .allowedMethods(CorsConfiguration.ALL)
                 .allowedHeaders(CorsConfiguration.ALL)
                 .exposedHeaders("Location")
-                .allowCredentials(true);
+                .allowCredentials(false);
     }
 }

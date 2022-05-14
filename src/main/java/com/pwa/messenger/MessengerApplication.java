@@ -25,7 +25,8 @@ public class MessengerApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("https://app2.pw/").allowedMethods("*");
+				registry.addMapping("https://app2.pw/")
+						.allowedMethods("GET", "HEAD", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "TRACE");
 			}
 		};
 	}
