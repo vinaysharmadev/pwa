@@ -7,12 +7,12 @@ public class CustomMessage {
     int isMyself;
     int status;
 
-    long senderId;
+    String senderId;
 
     public CustomMessage() {
     }
 
-    public CustomMessage(boolean addMsg, int groupId, int msgType, int isMyself, int status, long senderId, String receiverId, long unixTimestamp, String first_name, String last_name, String senderName, Msg message) {
+    public CustomMessage(boolean addMsg, int groupId, int msgType, int isMyself, int status, String senderId, String receiverId, long unixTimestamp, String first_name, String last_name, String senderName, Msg message) {
         this.addMsg = addMsg;
         this.groupId = groupId;
         this.msgType = msgType;
@@ -69,11 +69,11 @@ public class CustomMessage {
         this.status = status;
     }
 
-    public long getSenderId() {
+    public String getSenderId() {
         return senderId;
     }
 
-    public void setSenderId(long senderId) {
+    public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 

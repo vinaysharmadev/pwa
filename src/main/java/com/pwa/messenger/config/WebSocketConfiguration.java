@@ -23,10 +23,10 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        logger.info("connecting to GCloud Messenger app");
-        config.enableSimpleBroker( "/messenger");
-        config.setApplicationDestinationPrefixes("/messenger");
-        config.setUserDestinationPrefix("/messenger");
+        logger.info("connecting to GCloud Messanger app");
+        config.enableSimpleBroker( "/messanger");
+        config.setApplicationDestinationPrefixes("/messanger");
+        config.setUserDestinationPrefix("/messanger");
     }
 
     @Override

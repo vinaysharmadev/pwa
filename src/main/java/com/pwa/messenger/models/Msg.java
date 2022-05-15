@@ -6,12 +6,19 @@ import javax.persistence.*;
 import java.util.Date;
 
 public class Msg {
-    public Msg() {
-    }
 
+    int mediaType;
+    String text;
+    int callerId;
+    int isGroupCall;
+    String groupName;
+    long UNIXTime;
     long msgId;
     String senderName;
     int type;
+
+    public Msg() {
+    }
 
     public long getMsgId() {
         return msgId;
@@ -85,10 +92,5 @@ public class Msg {
         this.UNIXTime = UNIXTime;
     }
 
-    int mediaType;
-    String text;
-    int callerId;
-    int isGroupCall;
-    String groupName;
-    long UNIXTime;
+
 }
