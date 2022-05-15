@@ -22,10 +22,9 @@ function connect(){
         console.log("connected");
         let currentUser = Math.floor(Math.random() * 1000);
         console.log(currentUser);
-        stompClient.subscribe(
-            "/user/" + currentUser + "/queue/messages",
-            onMessageReceived
-        );
+        subscription_path = "/user/" + currentUser + "/queue/messages";
+        $("#subscription_path").text(subscription_path);
+        stompClient.subscribe(subscription_path, onMessageReceived);
     }
 
     function onError(err){

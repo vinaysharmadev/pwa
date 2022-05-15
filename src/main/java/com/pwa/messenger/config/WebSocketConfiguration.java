@@ -1,6 +1,9 @@
 package com.pwa.messenger.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pwa.messenger.controllers.MessageController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.converter.DefaultContentTypeResolver;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
@@ -16,19 +19,19 @@ import java.util.List;
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer {
+    Logger logger = LoggerFactory.getLogger(WebSocketConfiguration.class);
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        System.out.println("Broker entry");
-
-        config.enableSimpleBroker( "/messanger");
-        config.setApplicationDestinationPrefixes("/messanger");
-        config.setUserDestinationPrefix("/messanger");
+        logger.info("connecting to GCloud Messenger app");
+        config.enableSimpleBroker( "/messenger");
+        config.setApplicationDestinationPrefixes("/messenger");
+        config.setUserDestinationPrefix("/messenger");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        System.out.println("Registry entry");
+        logger.info("Registry entry");
         registry
                 .addEndpoint("/messenger-connect")
                 .setAllowedOrigins("https://app2.pw")
@@ -37,7 +40,7 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 
     @Override
     public boolean configureMessageConverters(List<MessageConverter> messageConverters) {
-        System.out.println("Message conversion entry");
+        logger.info("Message conversion entry");
 
         DefaultContentTypeResolver resolver = new DefaultContentTypeResolver();
         resolver.setDefaultMimeType(MimeTypeUtils.APPLICATION_JSON);

@@ -21,7 +21,7 @@ public class CustomMessage {
     int status;
 
     long senderId;
-    long receiverId;
+    String receiverId;
     long unixTimestamp;
 
 
